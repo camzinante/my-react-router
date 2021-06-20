@@ -21,6 +21,7 @@ import { Switch, Route, Link } from "react-router-dom";
 import HomePage from "./HomePage";
 import LoginPage from "./LoginPage";
 import SignUpPage from "./SignUpPage";
+import NewPage from "./NewPage";
 import { AuthContext } from "./AuthContext";
 import PrivateRoute from "./PrivateRoute";
 import AdminPage from "./AdminPage";
@@ -151,7 +152,7 @@ export default function NavBar() {
         </div>
         <Divider />
         <List>
-          {["Home", "Login", "Signup", "Drafts"].map((text, index) => (
+          {["Home", "Login", "Signup", "NewPage"].map((text, index) => (
             <ListItem button key={text} component={Link} to={"/" + text}>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -190,6 +191,10 @@ export default function NavBar() {
 
             <Route exact path="/Signup">
               <SignUpPage />
+            </Route>
+
+            <Route exact path="/NewPage">
+              <NewPage />
             </Route>
            
           </Switch>
